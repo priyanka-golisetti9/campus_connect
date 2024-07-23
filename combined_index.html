@@ -1,0 +1,31 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraped Data</title>
+</head>
+<body>
+    <h1>MIT Events</h1>
+    <ul>
+        {% for data in scraped_data1 %}
+            <li>
+                {{ data.website }} - {{ data.event_title }} | Date: {{ data.event_date }} | Time: {{ data.event_time }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h1>SVECW News</h1>
+    <ul>
+        {% for data in scraped_data2 %}
+            <li>
+                {{ data.website }} - {{ data.news_item }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

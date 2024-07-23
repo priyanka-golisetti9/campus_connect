@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined News & Events</title>
+</head>
+<body>
+
+    <h2>MIT Events</h2>
+
+    {% if scraped_data1 %}
+        <ul>
+            {% for event in scraped_data1 %}
+                <li>
+                    <strong>{{ event.event_title }}</strong> - {{ event.event_date }} {{ event.event_time }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Failed to retrieve MIT events.</p>
+    {% endif %}
+
+    <h2>SVECW News</h2>
+
+    {% if scraped_data2 %}
+        <ul>
+            {% for news_item in scraped_data2 %}
+                <li>
+                    {{ news_item.news_item }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Failed to retrieve SVECW news.</p>
+    {% endif %}
+
+    <h2>Vishnu Events</h2>
+
+    {% if scraped_data3 %}
+        <ul>
+            {% for event in scraped_data3 %}
+                <li>
+                    <strong>{{ event.event_title }}</strong> - {{ event.event_date }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Failed to retrieve Vishnu events.</p>
+    {% endif %}
+
+</body>
+</html>
